@@ -1,0 +1,411 @@
+/* style.css */
+
+/* ==========================================================================
+   TRI-COLOR PALETTE DEFINITION
+   Primary (Navy Blue): #0F172A - Represents safety, stability, professionalism
+   Secondary (Safety Orange): #F97316 - High-visibility electrical alert color
+   Neutral (Light Slate): #F8FAFC - Clean background base
+   Text/Accents: #334155 & Pure White (#FFFFFF)
+   ========================================================================== */
+
+:root {
+  --primary: #0F172A;      /* Dark Navy Blue */
+  --secondary: #F97316;    /* Bright Electric/Safety Orange */
+  --bg-neutral: #F8FAFC;   /* Crisp Light Slate Gray */
+  --card-bg: #FFFFFF;      /* Clean White */
+  --text-dark: #1E293B;    /* Charcoal Text */
+  --text-muted: #64748B;   /* Subdued Text */
+  --border-color: #E2E8F0; /* Soft Border Divider */
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-neutral);
+  color: var(--text-dark);
+}
+
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.75rem; font-weight: 800; }
+h2 { font-size: 2rem; font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+p { color: var(--text-muted); }
+
+span { color: var(--secondary); }
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--primary);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.logo svg {
+  stroke: var(--secondary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  transition-duration: 1.2s;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #EA580C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(249, 115, 22, 0.3);
+}
+
+.btn-secondary {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  margin-left: 0.75rem;
+}
+
+.btn-secondary:hover {
+  background-color: #FFFFFF;
+  color: var(--primary);
+}
+
+.btn-card {
+  width: 100%;
+  text-align: center;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+  background: transparent;
+  margin-top: 1rem;
+}
+
+.btn-card:hover {
+  background-color: var(--secondary);
+  color: #FFFFFF;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Layout Containers & Sections */
+section {
+  padding: 5rem 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-title p {
+  margin-top: 0.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Reusable Card Element */
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #1E293B 100%);
+  color: #FFFFFF;
+  padding: 7rem 8%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero h1 {
+  color: #FFFFFF;
+  margin: 1rem 0;
+}
+
+.hero p {
+  color: #94A3B8;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  background-color: rgba(249, 115, 22, 0.15);
+  color: var(--secondary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--secondary);
+}
+
+/* Features Section */
+.feature-card {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  stroke: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+/* Pricing Section */
+.price-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.price-card svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.price-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.price-card .desc {
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.price-card .price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 1.25rem 0 0.5rem 0;
+}
+
+.price-card .price span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Extra Wire Estimator Box */
+.extra-calc {
+  margin-top: 3rem;
+  border-left: 5px solid var(--secondary);
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.calc-item label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px 0 0 6px;
+  outline: none;
+}
+
+.input-group span {
+  background: var(--bg-neutral);
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.calc-summary {
+  text-align: right;
+}
+
+.total-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.contact-container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.form-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  display: none;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-feedback.success {
+  display: block;
+  background-color: #DCFCE7;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+
+footer {
+  background-color: var(--primary);
+  color: #94A3B8;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   ANIMATION & INTERACTION ENGINE
+   Implementation of Scroll-Triggered Reveal Effects and Hover Dynamics
+   ========================================================================== */
+
+/* Fade-In & Lift Animations for Cards and Sections */
+.hero-content,
+.card,
+.section-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.12);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; } 
+  h1 { font-size: 2.1rem; }
+  section { padding: 3.5rem 5%; }
+  .calc-summary { text-align: left; }
+}

@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------------------------------------------------------------
    * 2. MATERIAL PRICING ESTIMATOR (Wire + Conduit Calculator)
    * ---------------------------------------------------------------------- */
-  const WIRE_PRICE_PER_METER = 3.50;
-  const CONDUIT_PRICE_PER_METER = 2.00;
+  const WIRE_PRICE_PER_METER = 6.50;
+  const CONDUIT_PRICE_PER_METER = 4.00;
 
   const wireInput = document.getElementById('wire-length');
   const conduitInput = document.getElementById('conduit-length');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const conduitMeters = parseFloat(conduitInput.value) || 0;
 
     const totalCost = (wireMeters * WIRE_PRICE_PER_METER) + (conduitMeters * CONDUIT_PRICE_PER_METER);
-    totalDisplay.textContent = `$${totalCost.toFixed(2)}`;
+    totalDisplay.textContent = `₹${totalCost.toFixed(2)}`;
 
     return { wireMeters, conduitMeters, totalCost };
   }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Attach materials summary directly to contact form notes
   attachBtn.addEventListener('click', () => {
     const { wireMeters, conduitMeters, totalCost } = calculateMaterials();
-    const summaryText = `[Material Estimate Attached: ${wireMeters}m Wire ($${(wireMeters * WIRE_PRICE_PER_METER).toFixed(2)}) + ${conduitMeters}m Conduit ($${(conduitMeters * CONDUIT_PRICE_PER_METER).toFixed(2)}) = Total Extra: $${totalCost.toFixed(2)}]`;
+    const summaryText = `[Material Estimate Attached: ${wireMeters}m Wire (₹${(wireMeters * WIRE_PRICE_PER_METER).toFixed(2)}) + ${conduitMeters}m Conduit (₹${(conduitMeters * CONDUIT_PRICE_PER_METER).toFixed(2)}) = Total Extra: ₹${totalCost.toFixed(2)}]`;
 
     if (!notesTextarea.value.includes(summaryText)) {
       notesTextarea.value = notesTextarea.value ? `${notesTextarea.value}\n${summaryText}` : summaryText;
